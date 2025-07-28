@@ -1,0 +1,355 @@
+---
+title: "Introduction to R"
+author: "Reiko Okamoto"
+date: 2025-08-01
+format: 
+  html: 
+    embed-resources: true
+---
+
+## 👀 Overview of R
+
+-   R is a programming language and environment designed for statistical computing and data analysis
+-   It provides a wide range of statistical and graphical techniques, making it a powerful tool for data exploration, manipulation, visualization, and modeling
+-   Pros
+    -   Free software (accessible to everyone)
+    -   Large, active community contributing to code enhancements, bug fixes, and extensive collection of packages
+-   Cons
+    -   Can be slower and might not handle memory as efficiently as other languages
+
+## 💻 Getting started with RStudio
+
+-   An IDE (integrated development environment) is a software that brings together all the main tools you need for coding in one place
+-   For R, the most popular IDE is RStudio
+
+### What is the purpose of each pane?
+
+-   Script editor: writing and editing R code
+    -   ***Create a new R script***
+    -   ***Write a basic mathematical operation***
+-   Console: executing R code and displaying output
+    -   ***Execute the code by selecting the code and clicking on the Run button***
+    -   ***Execute the code using the keyboard shortcut (Ctrl/Cmd + Enter)***
+-   Environment: displaying objects, variables, and their values
+-   Files/Plots/Packages: managing files, displaying plots, handling packages
+
+## 📝 Quarto document
+
+-   R script is fine for writing and running code, but it's not very good at telling the story of your analysis
+-   Quarto is a file format that allows you to combine your code, its results, and your explanations into one document
+-   It supports multiple output formats (e.g., HTML, PDF, Word document)
+-   ***Click the Render button to turn our notes and code into a polished document we can share***
+
+## 1️⃣ Data types and variables
+
+-   Data types describe what kind of information you're working with and what you can do with that information
+
+### Data types commonly used in health data analysis
+
+-   Character (text; enclosed in quotes)
+-   Numeric
+-   Logical (Boolean; `TRUE` or `FALSE`)
+-   Date
+
+#### *Assign a string to a variable*
+
+```{r data-type-01}
+# YOUR CODE HERE
+```
+
+### **What is a variable?**
+
+-   Containers for storing data
+-   Using lowercase letters and underscores for variable names is considered good practice
+-   R is case-sensitive so `greeting` and `GREETING` are different variables
+-   Pick variable names that describe what kind of information the variable holds
+
+#### *Create a numeric variable*
+
+```{r data-type-02}
+# YOUR CODE HERE
+```
+
+#### *Create a logical variable*
+
+```{r data-type-03}
+# YOUR CODE HERE
+```
+
+#### *Practice exercises*
+
+1.  Create a character variable with your name
+2.  Create a numeric variable to store a year
+
+```{r data-type-04}
+# YOUR CODE HERE
+```
+
+-   In R, numbers are usually stored as **numeric** by default. Although you can specify that a number is an **integer** (a distinct data type representing whole numbers) by adding an `L` (like `2025L`), it's rare to need this in everyday coding.
+
+## 🏢 Data structures
+
+-   Data structures define how data is organized and stored
+
+### Data structures commonly used in health data analysis
+
+-   Atomic vector
+-   Factor
+-   Data frame
+-   List
+
+### Atomic vector
+
+-   A collection of elements of the same type
+
+#### *Create vectors*
+
+```{r data-str-01}
+# YOUR CODE HERE
+```
+
+#### *Check the length of the vector*
+
+```{r data-str-02}
+# YOUR CODE HERE
+```
+
+#### *Retrieve the first value of the vector*
+
+```{r data-str-03}
+# YOUR CODE HERE
+```
+
+-   In R, indexing (accessing elements by their position) starts at 1, not 0
+
+#### *Retrieve the second and fourth values of the vector*
+
+```{r data-str-04}
+# YOUR CODE HERE
+```
+
+### Factor
+
+-   Used for categorical variables
+-   Unlike character vectors, factors have a set of pre-defined levels
+-   Why is it useful?
+    -   Makes modeling easier because many functions recognize factors as categorical variables automatically
+
+    -   Gives you control over category order when plotting (instead of default alphabetical order)
+
+#### *Create a factor variable*
+
+```{r data-str-05}
+# YOUR CODE HERE
+```
+
+-   `levels` lets you set the order of the categories; if you don't specify, R orders them alphabetically
+
+### Data frames
+
+-   A collection of vectors that all have the same length
+-   Each column can contain a different data type, but inside one column, all the data needs to be the same type
+-   Used to represent tabular data
+
+#### *Create a data frame*
+
+```{r data-str-06}
+# YOUR CODE HERE
+```
+
+#### *Access a specific value by row and column indices*
+
+```{r data-str-07}
+# YOUR CODE HERE
+```
+
+-   We'll learn how to access specific columns and rows using `dplyr` later on. For more information on indexing and slicing data frames using base R, check out [this article](https://www.geeksforgeeks.org/r-language/indexing-and-slicing-data-frames-in-r/).
+
+## ➕ Operators
+
+### Arithmetic operators
+
+-   Takes two objects and performs a calculation on them
+-   E.g., `+`, `-`, `*`, `/`
+
+#### *Calculate the remainder after diving 17 by 5*
+
+```{r operators-02}
+# YOUR CODE HERE
+```
+
+-   Useful when doing calculations that repeat in cycles (e.g., days of the week)
+
+#### *Raise 3 to the power of 2*
+
+```{r operators-03}
+# YOUR CODE HERE
+```
+
+### Relational operators
+
+-   Compares two objects and returns `TRUE` or `FALSE`
+
+#### *Check that 10 is equal to 10*
+
+```{r operators-04}
+# YOUR CODE HERE
+```
+
+#### *Check that 5 is not equal to 7*
+
+```{r operators-05}
+# YOUR CODE HERE
+```
+
+#### *Check that 8 is greater than (or equal to) 5*
+
+```{r operators-06}
+# YOUR CODE HERE
+```
+
+-   Same principle applies to less than (or equal to)
+
+### Logical operators
+
+-   Take in values that are (or can be turned into) `TRUE` or `FALSE` and returns `TRUE` or `FALSE`
+
+#### *Check that 5 is greater than 3 and that 7 is less than 10*
+
+```{r operators-07}
+# YOUR CODE HERE
+```
+
+#### *Check that 4 is greater than 6 or that 9 is equal to 9*
+
+```{r operators-08}
+# YOUR CODE HERE
+```
+
+#### *Flip a Boolean value*
+
+```{r operators-09}
+# YOUR CODE HERE
+```
+
+-   Relational and logical operators are especially useful for filtering data in a data frame
+-   Check out [this article](https://www.geeksforgeeks.org/r-language/r-operators/) for a comprehensive list of operators in R
+
+## 🧮 Functions
+
+-   Functions are blocks of code designed to perform specific tasks
+-   They take inputs, process them, and return outputs
+
+#### *Calculate the mean (average) of a numeric vector*
+
+```{r functions-01}
+# YOUR CODE HERE
+```
+
+#### *Calculate the sum of values in a numeric vector*
+
+```{r functions-02}
+# YOUR CODE HERE
+```
+
+#### *Round 3.14159 to 2 decimal places*
+
+```{r functions-03}
+# YOUR CODE HERE
+```
+
+-   The `help()` function or `?` can be used to access function documentation
+
+#### *Other commonly used functions*
+
+-   `median()` computes the median of a numeric vector
+-   `min()` finds the smallest value in a numeric vector
+-   `max()` finds the largest value in a numeric vector
+-   `sd()` computes the standard deviation of a numeric vector
+-   `abs()` computes the absolute value of a numeric vector
+-   `sqrt()` computes the square root of a numeric vector
+
+## 🧑‍🔧 Pipes
+
+#### *Compute the sum of every number from 1 to 10, then take its square root, rounded to 3 decimal places*
+
+```{r pipes-01}
+# YOUR CODE HERE
+```
+
+#### *Repeat the calculation with the pipe operator*
+
+```{r pipes-02}
+# YOUR CODE HERE
+```
+
+-   The **pipe operator** (Ctrl/Cmd + Shift + M) allows users to chain operations together, enhancing code readability and reducing nesting
+-   The operations flow left-to-right so the sequence of actions is presented more clearly
+-   Anything written after `#` on a line is considered a **comment** and is not executed as code
+    -   These help clarify the purpose or functionality of code for other users and even for yourself in the future
+
+## 📦 Packages
+
+-   **Packages** are sets of R functions, data sets, and other resources bundled together
+-   They enhance base R's functionality by providing specialized tools for various tasks
+-   We will focus on:
+    -   [`dplyr`](https://github.com/tidyverse/dplyr) for data manipulation and transformation
+    -   [`ggplot2`](https://github.com/tidyverse/ggplot2) for creating high-quality visualizations
+-   Both of these packages belong to the [tidyverse](https://www.tidyverse.org/), a meta-package (package of packages) designed for data science and analysis
+
+## 🏎️ If we have time: Test drive `dplyr`
+
+#### *Load the package*
+
+```{r dplyr-01}
+# YOUR CODE HERE
+```
+
+#### *Filter rows where `mpg` (fuel efficiency) is greater than 20*
+
+```{r dplyr-02}
+# YOUR CODE HERE
+```
+
+#### *Select `mpg` and `cyl` columns*
+
+```{r dplyr-03}
+# YOUR CODE HERE
+```
+
+#### *Compute the power-to-weight ratio of each car*
+
+```{r dplyr-04}
+# YOUR CODE HERE
+```
+
+#### *Compute the average fuel efficiency*
+
+```{r dplyr-05}
+# YOUR CODE HERE
+```
+
+#### *Reorder the data by fuel efficiency in ascending order*
+
+```{r dplyr-06}
+# YOUR CODE HERE
+```
+
+#### *More practice exercises*
+
+-   Using the `mtcars` data set and the pipe, perform the following steps in sequence:
+    1.  Select the columns `mpg`, `cyl`, `hp`, and `wt`
+
+    2.  Filter the rows to include only cars with `mpg` greater than 15
+
+    3.  Create a new column `km_per_l` by converting `mpg` to kilometers per liter (1 mpg = 0.425144 km/L)
+
+    4.  Calculate the average `kl_per_l`
+
+```{r dplyr-07}
+# YOUR CODE HERE
+```
+
+## 📚 Resources
+
+-   [R for Data Science](https://r4ds.had.co.nz/)
