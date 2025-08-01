@@ -7,7 +7,7 @@ format:
     embed-resources: true
 ---
 
-## 👀 Overview of R
+## 👀 Overview of R (1 min)
 
 -   R is a programming language and environment designed for statistical computing and data analysis
 -   It provides a wide range of statistical and graphical techniques, making it a powerful tool for data exploration, manipulation, visualization, and modeling
@@ -17,7 +17,7 @@ format:
 -   Cons
     -   Can be slower and might not handle memory as efficiently as other languages
 
-## 💻 Getting started with RStudio
+## 💻 Getting started with RStudio (2 min)
 
 -   An IDE (integrated development environment) is a software that brings together all the main tools you need for coding in one place
 -   For R, the most popular IDE is RStudio
@@ -33,18 +33,18 @@ format:
 -   Environment: displaying objects, variables, and their values
 -   Files/Plots/Packages: managing files, displaying plots, handling packages
 
-## 📝 Quarto document
+## 📝 Quarto document (1 min)
 
 -   R script is fine for writing and running code, but it's not very good at telling the story of your analysis
 -   Quarto is a file format that allows you to combine your code, its results, and your explanations into one document
 -   It supports multiple output formats (e.g., HTML, PDF, Word document)
 -   ***Click the Render button to turn our notes and code into a polished document we can share***
 
-## 1️⃣ Data types and variables
+## 1️⃣ Data types and variables (5 min)
 
 -   Data types describe what kind of information you're working with and what you can do with that information
 
-### Data types commonly used in health data analysis
+### Data types commonly used in health data analysis 
 
 -   Character (text; enclosed in quotes)
 -   Numeric
@@ -88,7 +88,7 @@ year <- 2025
 
 -   In R, numbers are usually stored as **numeric** by default. Although you can specify that a number is an **integer** (a distinct data type representing whole numbers) by adding an `L` (like `2025L`), it's rare to need this in everyday coding.
 
-## 🏢 Data structures
+## 🏢 Data structures (12 min)
 
 -   Data structures define how data is organized and stored
 
@@ -162,7 +162,7 @@ df <- data.frame(
 )
 ```
 
-#### *Access a specific value by row and column indices* 
+#### *Access a specific value by row and column indices*
 
 ```{r data-str-07}
 df[2, "age"]
@@ -171,7 +171,7 @@ df[2, 2]
 
 -   We'll learn how to access specific columns and rows using `dplyr` later on. For more information on indexing and slicing data frames using base R, check out [this article](https://www.geeksforgeeks.org/r-language/indexing-and-slicing-data-frames-in-r/).
 
-## ➕ Operators
+## ➕ Operators (10 min)
 
 ### Arithmetic operators
 
@@ -244,7 +244,7 @@ is_sunny <- TRUE
 -   Relational and logical operators are especially useful for filtering data in a data frame
 -   Check out [this article](https://www.geeksforgeeks.org/r-language/r-operators/) for a comprehensive list of operators in R
 
-## 🧮 Functions
+## 🧮 Functions (6 min)
 
 -   Functions are blocks of code designed to perform specific tasks
 -   They take inputs, process them, and return outputs
@@ -280,7 +280,7 @@ round(3.14159, digits = 2)
 -   `abs()` computes the absolute value of a numeric vector
 -   `sqrt()` computes the square root of a numeric vector
 
-## 🧑‍🔧 Pipes
+## 🧑‍🔧 Pipes (8 min)
 
 #### *Compute the sum of every number from 1 to 10, then take its square root, rounded to 3 decimal places*
 
@@ -304,7 +304,7 @@ round(sqrt(sum(1:10)), digits = 3)
 -   Anything written after `#` on a line is considered a **comment** and is not executed as code
     -   These help clarify the purpose or functionality of code for other users and even for yourself in the future
 
-## 📦 Packages
+## 📦 Packages (1 min)
 
 -   **Packages** are sets of R functions, data sets, and other resources bundled together
 -   They enhance base R's functionality by providing specialized tools for various tasks
@@ -313,7 +313,7 @@ round(sqrt(sum(1:10)), digits = 3)
     -   [`ggplot2`](https://github.com/tidyverse/ggplot2) for creating high-quality visualizations
 -   Both of these packages belong to the [tidyverse](https://www.tidyverse.org/), a meta-package (package of packages) designed for data science and analysis
 
-##  🏎️ If we have time: Test drive `dplyr` 
+## 🏎️ If we have time: Test drive `dplyr`
 
 #### *Load the package*
 
